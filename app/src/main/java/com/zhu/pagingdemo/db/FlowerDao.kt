@@ -18,7 +18,7 @@ interface FlowerDao {
      * it back to UI via ViewModel.
      */
     @Query("SELECT * FROM Flower ORDER BY name COLLATE NOCASE ASC")
-    fun allCheesesByName(): PagingSource<Int, Flower>
+    fun allFlowersByName(): PagingSource<Int, Flower>
 
     @Insert
     fun insert(cheeses: List<Flower>)
