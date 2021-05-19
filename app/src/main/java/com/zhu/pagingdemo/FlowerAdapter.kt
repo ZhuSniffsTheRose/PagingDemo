@@ -23,19 +23,17 @@ class FlowerAdapter : PagingDataAdapter<Flower, FlowerViewHolder>(diffCallback) 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlowerViewHolder {
-        Log.d("heiheihei", "FlowerAdapter onCreateViewHolder:$itemCount")
         return FlowerViewHolder(FlowerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<Flower>() {
             override fun areItemsTheSame(oldItem: Flower, newItem: Flower): Boolean {
-                Log.d("heiheihei", "FlowerAdapter areItemsTheSame:  ${oldItem.name}  ${newItem.name}")
-                return false
+                return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(oldItem: Flower, newItem: Flower): Boolean {
-                return false
+                return oldItem == newItem
             }
         }
     }
